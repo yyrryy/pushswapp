@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aaliali <aaliali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/25 16:55:55 by mcombeau          #+#    #+#             */
-/*   Updated: 2022/04/30 13:25:21 by mcombeau         ###   ########.fr       */
+/*   Created: 2025/12/14 13:37:26 by aaliali           #+#    #+#             */
+/*   Updated: 2026/01/01 21:09:00 by aaliali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "push_swap.h"
 
@@ -16,38 +17,41 @@
 *	Swaps the top 2 elements of a stack.
 *	Does nothing if there is only one or no elements.
 */
-static void	swap(t_stack *stack)
+void swap(t_stack **stack)
 {
-	int	tmp;
+    t_stack *holder;
+    t_stack *holdernext;
 
-	if (stack == NULL || stack->next == NULL)
-		return ;
-	tmp = stack->value;
-	stack->value = stack->next->value;
-	stack->next->value = tmp;
-	tmp = stack->index;
-	stack->index = stack->next->index;
-	stack->next->index = tmp;
+    if (!stack || !*stack || !(*stack)->next)
+        return;
+
+    holder = *stack;
+    holdernext = holder->next;
+    holder->next = holdernext->next;
+    holdernext->next = holder;
+    *stack = holdernext;
 }
 
 /* do_sa:
 *	Swaps the top 2 elements of stack a.
 *	Prints "sa" to the standard output.
 */
-void	do_sa(t_stack **stack_a)
+void	swapa(t_stack **stack_a, int bonus)
 {
-	swap(*stack_a);
-	ft_putstr("sa\n");
+	swap(stack_a);
+    if (!bonus)
+    	ft_putstr("sa\n");
 }
 
 /* do_sb:
 *	Swaps the top 2 elements of stack b.
 *	Prints "sb" to the standard output.
 */
-void	do_sb(t_stack **stack_b)
+void	swapb(t_stack **stack_b, int bonus)
 {
-	swap(*stack_b);
-	ft_putstr("sb\n");
+	swap(stack_b);
+    if (!bonus)
+    	ft_putstr("sb\n");
 }
 
 /* do_ss:
@@ -55,9 +59,10 @@ void	do_sb(t_stack **stack_b)
 *	of stack b.
 *	Prints "ss" to the standard output.
 */
-void	do_ss(t_stack **stack_a, t_stack **stack_b)
+void	swapa_and_b(t_stack **stack_a, t_stack **stack_b, int bonus)
 {
-	swap(*stack_a);
-	swap(*stack_b);
-	ft_putstr("ss\n");
+	swap(stack_a);
+	swap(stack_b);
+    if (!bonus)
+    	ft_putstr("ss\n");
 }

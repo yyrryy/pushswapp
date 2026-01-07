@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   input_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aaliali <aaliali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/25 13:27:24 by mcombeau          #+#    #+#             */
-/*   Updated: 2022/05/13 15:57:10 by mcombeau         ###   ########.fr       */
+/*   Created: 2025/12/14 19:36:18 by aaliali           #+#    #+#             */
+/*   Updated: 2025/12/28 21:57:58 by aaliali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "push_swap.h"
 
@@ -78,7 +79,7 @@ static int	arg_is_zero(char *av)
 *   Checks if the given arguments are all numbers, without duplicates.
 *   Return: 1 if the arguments are valid, 0 if not.
 */
-int	is_correct_input(char **av)
+int	validargv(char **av)
 {
 	int	i;
 	int	nb_zeros;

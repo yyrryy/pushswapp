@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   position.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aaliali <aaliali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/26 15:26:20 by mcombeau          #+#    #+#             */
-/*   Updated: 2022/04/30 17:26:18 by mcombeau         ###   ########.fr       */
+/*   Created: 2025/12/15 13:36:31 by aaliali           #+#    #+#             */
+/*   Updated: 2025/12/30 14:45:21 by aaliali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
 
+#include "push_swap.h"
+ 
 /* get_position:
 *	Assigns a position to each element of a stack from top to bottom
 *	in ascending order.
@@ -25,7 +26,7 @@
 *	push the highest value, 9, which is in third position, it would cost 2 extra
 *	moves to bring that 9 to the top of b before pushing it to stack a.
 */
-static void	get_position(t_stack **stack)
+static void	assignposition(t_stack **stack)
 {
 	t_stack	*tmp;
 	int		i;
@@ -44,7 +45,7 @@ static void	get_position(t_stack **stack)
 *	Gets the current position of the element with the lowest index
 *	within a stack.
 */
-int	get_lowest_index_position(t_stack **stack)
+int	positionoflowestindex(t_stack **stack)
 {
 	t_stack	*tmp;
 	int		lowest_index;
@@ -52,7 +53,7 @@ int	get_lowest_index_position(t_stack **stack)
 
 	tmp = *stack;
 	lowest_index = INT_MAX;
-	get_position(stack);
+	assignposition(stack);
 	lowest_pos = tmp->pos;
 	while (tmp)
 	{
@@ -132,14 +133,14 @@ static int	get_target(t_stack **a, int b_idx,
 *	be used to calculate the cost of moving each element to
 *	its target position in stack A.
 */
-void	get_target_position(t_stack **a, t_stack **b)
+void	targetposition(t_stack **a, t_stack **b)
 {
 	t_stack	*tmp_b;
 	int		target_pos;
 
 	tmp_b = *b;
-	get_position(a);
-	get_position(b);
+	assignposition(a);
+	assignposition(b);
 	target_pos = 0;
 	while (tmp_b)
 	{

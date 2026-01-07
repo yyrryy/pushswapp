@@ -3,19 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aaliali <aaliali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/25 14:26:12 by mcombeau          #+#    #+#             */
-/*   Updated: 2022/04/30 13:30:26 by mcombeau         ###   ########.fr       */
+/*   Created: 2025/12/14 16:33:15 by aaliali           #+#    #+#             */
+/*   Updated: 2025/12/28 22:41:30 by aaliali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "push_swap.h"
 
 /* get_stack_bottom:
 *	Returns the last element of the stack.
 */
-t_stack	*get_stack_bottom(t_stack *stack)
+t_stack	*lastelementinstack(t_stack *stack)
 {
 	while (stack && stack->next != NULL)
 		stack = stack->next;
@@ -25,7 +26,7 @@ t_stack	*get_stack_bottom(t_stack *stack)
 /* get_stack_before_bottom:
 *	Returns the second to last element of the stack.
 */
-t_stack	*get_stack_before_bottom(t_stack *stack)
+t_stack	*elementbeforelastinstack(t_stack *stack)
 {
 	while (stack && stack->next && stack->next->next != NULL)
 		stack = stack->next;
@@ -36,7 +37,7 @@ t_stack	*get_stack_before_bottom(t_stack *stack)
 *	Creates a stack elements with the provided value.
 *	Returns the newly created stack element.
 */
-t_stack	*stack_new(int value)
+t_stack	*createnodewithvalue(int value)
 {
 	t_stack	*new;
 
@@ -56,7 +57,7 @@ t_stack	*stack_new(int value)
 /* add_stack_bottom:
 *	Adds an element to the bottom of a stack.
 */
-void	stack_add_bottom(t_stack **stack, t_stack *new)
+void	lst_addback(t_stack **stack, t_stack *new)
 {
 	t_stack	*tail;
 
@@ -67,14 +68,14 @@ void	stack_add_bottom(t_stack **stack, t_stack *new)
 		*stack = new;
 		return ;
 	}
-	tail = get_stack_bottom(*stack);
+	tail = lastelementinstack(*stack);
 	tail->next = new;
 }
 
 /* get_stack_size:
 *	Returns the number of elements in a stack.
 */
-int	get_stack_size(t_stack	*stack)
+int	getstacksize(t_stack	*stack)
 {
 	int	size;
 

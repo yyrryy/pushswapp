@@ -2,9 +2,9 @@ CC		= cc
 CFLAGS	= -Wall -Werror -Wextra
 NAME	= push_swap
 
-SRC= main.c input_check.c input_check_utils.c initialization.c stack.c swap.c push.c rotate.c reverse_rotate.c sortthree.c sort.c position.c cost.c choose_the_action.c utils.c
+SRC= main.c input_check.c input_check_utils.c initialization.c stack.c swap.c push.c rotate.c reverse_rotate.c sort_tiny.c sort.c position.c cost.c choose_the_action.c utils.c
 
-BONUS_SRC= checker_bonus.c initialization.c utils.c stack.c swap.c push.c rotate.c reverse_rotate.c input_check_utils.c input_check.c get_next_line_bonus.c
+BONUS_SRC= checker_bonus.c input_check.c input_check_utils.c initialization.c stack.c swap.c push.c rotate.c reverse_rotate.c sort_tiny.c sort.c position.c cost.c choose_the_action.c utils.c get_next_line_bonus.c
 
 OBJS    = $(SRC:.c=.o)
 BONUS_OBJS = $(BONUS_SRC:.c=.o)
@@ -32,20 +32,20 @@ re: fclean all
 
 test500: $(NAME)	
 	$(eval ARG = $(shell shuf -i 0-5000 -n 500))
-	./push_swap $(ARG) | ./checker $(ARG)
+	./push_swap $(ARG) | ./checker_linux $(ARG)
 	@echo -n "Instructions: "
 	@./push_swap $(ARG) | wc -l
 	
 test100: $(NAME)
-	$(eval ARG = $(shell shuf -i 100-5000 -n 100))
-	./push_swap $(ARG) | ./checker $(ARG)
+	$(eval ARG = $(shell shuf -i 0-5000 -n 100))
+	./push_swap $(ARG) | ./checker_linux $(ARG)
 	@echo -n "Instructions: "
 	@./push_swap $(ARG) | wc -l
 	
 				
 test1000: $(NAME)	
 	$(eval ARG = $(shell shuf -i 0-5000 -n 1000))
-	./push_swap $(ARG) | ./checker $(ARG)
+	./push_swap $(ARG) | ./checker_linux $(ARG)
 	@echo -n "Instructions: "
 	@./push_swap $(ARG) | wc -l
 

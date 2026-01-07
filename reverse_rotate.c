@@ -3,60 +3,64 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aaliali <aaliali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/25 17:26:52 by mcombeau          #+#    #+#             */
-/*   Updated: 2022/04/30 13:29:05 by mcombeau         ###   ########.fr       */
+/*   Created: 2025/12/15 23:36:53 by aaliali           #+#    #+#             */
+/*   Updated: 2025/12/30 15:20:34 by aaliali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "push_swap.h"
 
-/* rev_rotate:
+/* reverserotate:
 *	Brings the bottom element of a stack to the top.
 */
-static void	rev_rotate(t_stack **stack)
+static void	reverserotate(t_stack **stack)
 {
-	t_stack	*tmp;
-	t_stack	*tail;
-	t_stack	*before_tail;
+	t_stack	*holder;
+	t_stack	*last;
+	t_stack	*beforelast;
 
-	tail = get_stack_bottom(*stack);
-	before_tail = get_stack_before_bottom(*stack);
-	tmp = *stack;
-	*stack = tail;
-	(*stack)->next = tmp;
-	before_tail->next = NULL;
+	last = lastelementinstack(*stack);
+	beforelast = elementbeforelastinstack(*stack);
+	holder = *stack;
+	*stack = last;
+	(*stack)->next = holder;
+	beforelast->next = NULL;
 }
 
-/* do_rra:
+/* reverserotatea:
 *	Brings the bottom element of stack a to the top.
 *	Prints "rra" to the standard output.
 */
-void	do_rra(t_stack **stack_a)
+void	reverserotatea(t_stack **stack_a, int bonus)
 {
-	rev_rotate(stack_a);
-	ft_putstr("rra\n");
+	reverserotate(stack_a);
+	if (!bonus)
+		ft_putstr("rra\n");
 }
 
-/* do_rrb:
+/* reverserotateb:
 *	Brings the bottom element of stack b to the top.
 *	Prints "rrb" to the standard output.
 */
-void	do_rrb(t_stack **stack_b)
+void	reverserotateb(t_stack **stack_b, int bonus)
 {
-	rev_rotate(stack_b);
-	ft_putstr("rrb\n");
+	reverserotate(stack_b);
+	if (!bonus)
+		ft_putstr("rrb\n");
 }
 
-/* do_rrr:
+/* reverserotatea_and_b:
 *	Brings the bottom element of both stack a and stack be
 *	to the top of their respective stacks.
 *	Prints "rrr" to the standard output.
 */
-void	do_rrr(t_stack **stack_a, t_stack **stack_b)
+void	reverserotatea_and_b(t_stack **stack_a, t_stack **stack_b, int bonus)
 {
-	rev_rotate(stack_a);
-	rev_rotate(stack_b);
-	ft_putstr("rrr\n");
+	reverserotate(stack_a);
+	reverserotate(stack_b);
+	if (!bonus)
+		ft_putstr("rrr\n");
 }

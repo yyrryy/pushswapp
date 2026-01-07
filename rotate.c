@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aaliali <aaliali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/25 17:18:17 by mcombeau          #+#    #+#             */
-/*   Updated: 2022/09/28 11:13:19 by mcombeau         ###   ########.fr       */
+/*   Created: 2025/12/14 13:36:58 by aaliali           #+#    #+#             */
+/*   Updated: 2025/12/30 15:21:28 by aaliali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "push_swap.h"
 
@@ -22,7 +23,7 @@ static void	rotate(t_stack **stack)
 
 	tmp = *stack;
 	*stack = (*stack)->next;
-	tail = get_stack_bottom(*stack);
+	tail = lastelementinstack(*stack);
 	tmp->next = NULL;
 	tail->next = tmp;
 }
@@ -31,20 +32,22 @@ static void	rotate(t_stack **stack)
 *	Sends the top element of stack a to the bottom.
 *	Prints "ra" to the standard output.
 */
-void	do_ra(t_stack **stack_a)
+void	rotatea(t_stack **stack_a, int bonus)
 {
 	rotate(stack_a);
-	ft_putstr("ra\n");
+	if (!bonus)
+		ft_putstr("ra\n");
 }
 
 /* do_rb:
 *	Sends the top element of stack b to the bottom.
 *	Prints "rb" to the standard output.
 */
-void	do_rb(t_stack **stack_b)
+void	rotateb(t_stack **stack_b, int bonus)
 {
 	rotate(stack_b);
-	ft_putstr("rb\n");
+	if (!bonus)
+		ft_putstr("rb\n");
 }
 
 /* do_rr:
@@ -52,9 +55,10 @@ void	do_rb(t_stack **stack_b)
 *	of their respective stacks.
 *	Prints "rr" to the standard output.
 */
-void	do_rr(t_stack **stack_a, t_stack **stack_b)
+void	rotatea_and_b(t_stack **stack_a, t_stack **stack_b, int bonus)
 {
 	rotate(stack_a);
 	rotate(stack_b);
-	ft_putstr("rr\n");
+	if (!bonus)
+		ft_putstr("rr\n");
 }

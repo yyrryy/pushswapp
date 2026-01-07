@@ -3,19 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   sort_tiny.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aaliali <aaliali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/25 17:41:01 by mcombeau          #+#    #+#             */
-/*   Updated: 2022/04/30 14:03:55 by mcombeau         ###   ########.fr       */
+/*   Created: 2025/12/14 23:37:03 by aaliali           #+#    #+#             */
+/*   Updated: 2025/12/30 15:25:12 by aaliali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "push_swap.h"
 
 /* find_highest_index:
 *	Returns the highest index in a stack.
 */
-static int	find_highest_index(t_stack *stack)
+static int	biggerindex(t_stack *stack)
 {
 	int		index;
 
@@ -42,17 +43,15 @@ static int	find_highest_index(t_stack *stack)
 *		values:		 0	 2	 9
 *		indexes:	[1]	[2]	[3]
 */
-void	tiny_sort(t_stack **stack)
+void	sortthree(t_stack **stack)
 {
 	int		highest;
 
-	if (is_sorted(*stack))
-		return ;
-	highest = find_highest_index(*stack);
+	highest = biggerindex(*stack);
 	if ((*stack)->index == highest)
-		do_ra(stack);
+		rotatea(stack, 0);
 	else if ((*stack)->next->index == highest)
-		do_rra(stack);
+		reverserotatea(stack, 0);
 	if ((*stack)->index > (*stack)->next->index)
-		do_sa(stack);
+		swapa(stack, 0);
 }

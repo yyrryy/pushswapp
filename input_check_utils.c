@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_check_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcombeau <mcombeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aaliali <aaliali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/25 13:25:28 by mcombeau          #+#    #+#             */
-/*   Updated: 2022/04/25 17:15:03 by mcombeau         ###   ########.fr       */
+/*   Created: 2025/12/14 13:35:53 by aaliali           #+#    #+#             */
+/*   Updated: 2025/12/29 11:43:42 by aaliali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	is_digit(char c)
 {
 	return (c >= '0' && c <= '9');
 }
-
 /* is_sign:
 *   Checks if the character is number sign, + or -.
 *   Return: 1 if the character is a sign, 0 if not.
