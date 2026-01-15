@@ -6,7 +6,7 @@
 /*   By: aaliali <aaliali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 19:36:47 by aaliali           #+#    #+#             */
-/*   Updated: 2026/01/01 22:04:58 by aaliali          ###   ########.fr       */
+/*   Updated: 2026/01/13 11:11:21 by aaliali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@
 */
 static void	push(t_stack **source, t_stack **target)
 {
-	t_stack	*tmp;
+	t_stack	*holder;
 
-	if (*source == NULL)
+	if (!source || !*source)
 		return ;
-	tmp = (*source)->next;
+	holder = (*source)->next;
 	(*source)->next = *target;
 	*target = *source;
-	*source = tmp;
+	*source = holder;
 }
 
 /* do_pa:

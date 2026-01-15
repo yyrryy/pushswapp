@@ -2,7 +2,7 @@ CC		= cc
 CFLAGS	= -Wall -Werror -Wextra
 NAME	= push_swap
 
-SRC= main.c input_check.c input_check_utils.c initialization.c stack.c swap.c push.c rotate.c reverse_rotate.c sortthree.c sort.c position.c cost.c choose_the_action.c utils.c
+SRC= main.c input_check.c input_check_utils.c initialization.c stack.c swap.c push.c rotate.c reverse_rotate.c sortthree.c sort.c position.c cost.c choose_the_action.c utils.c unwanted.c radix.c ft_split.c
 
 BONUS_SRC= checker_bonus.c initialization.c utils.c stack.c swap.c push.c rotate.c reverse_rotate.c input_check_utils.c input_check.c get_next_line_bonus.c
 

@@ -6,7 +6,7 @@
 /*   By: aaliali <aaliali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 13:36:31 by aaliali           #+#    #+#             */
-/*   Updated: 2025/12/30 14:45:21 by aaliali          ###   ########.fr       */
+/*   Updated: 2026/01/13 00:23:13 by aaliali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,29 +99,29 @@ int	positionoflowestindex(t_stack **stack)
 static int	get_target(t_stack **a, int b_idx,
 								int target_idx, int target_pos)
 {
-	t_stack	*tmp_a;
+	t_stack	*holder;
 
-	tmp_a = *a;
-	while (tmp_a)
+	holder = *a;
+	while (holder)
 	{
-		if (tmp_a->index > b_idx && tmp_a->index < target_idx)
+		if (holder->index > b_idx && holder->index < target_idx)
 		{
-			target_idx = tmp_a->index;
-			target_pos = tmp_a->pos;
+			target_idx = holder->index;
+			target_pos = holder->pos;
 		}
-		tmp_a = tmp_a->next;
+		holder = holder->next;
 	}
 	if (target_idx != INT_MAX)
 		return (target_pos);
-	tmp_a = *a;
-	while (tmp_a)
+	holder = *a;
+	while (holder)
 	{
-		if (tmp_a->index < target_idx)
+		if (holder->index < target_idx)
 		{
-			target_idx = tmp_a->index;
-			target_pos = tmp_a->pos;
+			target_idx = holder->index;
+			target_pos = holder->pos;
 		}
-		tmp_a = tmp_a->next;
+		holder = holder->next;
 	}
 	return (target_pos);
 }
@@ -135,17 +135,17 @@ static int	get_target(t_stack **a, int b_idx,
 */
 void	targetposition(t_stack **a, t_stack **b)
 {
-	t_stack	*tmp_b;
+	t_stack	*holder;
 	int		target_pos;
 
-	tmp_b = *b;
+	holder = *b;
 	assignposition(a);
 	assignposition(b);
 	target_pos = 0;
-	while (tmp_b)
+	while (holder)
 	{
-		target_pos = get_target(a, tmp_b->index, INT_MAX, target_pos);
-		tmp_b->target_pos = target_pos;
-		tmp_b = tmp_b->next;
+		target_pos = get_target(a, holder->index, INT_MAX, target_pos);
+		holder->target_pos = target_pos;
+		holder = holder->next;
 	}
 }

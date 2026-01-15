@@ -6,7 +6,7 @@
 /*   By: aaliali <aaliali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 13:36:58 by aaliali           #+#    #+#             */
-/*   Updated: 2025/12/30 15:21:28 by aaliali          ###   ########.fr       */
+/*   Updated: 2026/01/13 13:10:10 by aaliali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,16 @@ static void	rotate(t_stack **stack)
 	t_stack	*tmp;
 	t_stack	*tail;
 
+	if ((*stack)->next == NULL)
+		return;
+	// printstack("rotating b", *stack);
+	//write(1, "===\n", 4);
 	tmp = *stack;
 	*stack = (*stack)->next;
 	tail = lastelementinstack(*stack);
 	tmp->next = NULL;
 	tail->next = tmp;
+	// printstack("after rotating b", *stack);
 }
 
 /* do_ra:

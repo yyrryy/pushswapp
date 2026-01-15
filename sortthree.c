@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_tiny.c                                        :+:      :+:    :+:   */
+/*   sortthree.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aaliali <aaliali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 23:37:03 by aaliali           #+#    #+#             */
-/*   Updated: 2025/12/30 15:25:12 by aaliali          ###   ########.fr       */
+/*   Updated: 2026/01/13 13:13:54 by aaliali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,12 @@ static int	biggerindex(t_stack *stack)
 */
 void	sortthree(t_stack **stack)
 {
-	int		highest;
+	int		bigindex;
 
-	highest = biggerindex(*stack);
-	if ((*stack)->index == highest)
+	bigindex = biggerindex(*stack);
+	if ((*stack)->index == bigindex)
 		rotatea(stack, 0);
-	else if ((*stack)->next->index == highest)
+	else if ((*stack)->next->index == bigindex)
 		reverserotatea(stack, 0);
 	if ((*stack)->index > (*stack)->next->index)
 		swapa(stack, 0);

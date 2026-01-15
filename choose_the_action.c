@@ -29,7 +29,7 @@ static void	upcost_and_rrr(t_stack **a, t_stack **b, int *cost_a, int *cost_b)
 		reverserotatea_and_b(a, b, 0);
 	}
 }
-
+/* combine */
 /* downcost_and_rr:
 *	Rotates both stack A and B until one of them is in position.
 *	The given cost is positive since both positions are in the top half

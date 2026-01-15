@@ -6,7 +6,7 @@
 /*   By: aaliali <aaliali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 16:33:15 by aaliali           #+#    #+#             */
-/*   Updated: 2025/12/28 22:41:30 by aaliali          ###   ########.fr       */
+/*   Updated: 2026/01/10 14:28:48 by aaliali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,20 +56,30 @@ t_stack	*createnodewithvalue(int value)
 
 /* add_stack_bottom:
 *	Adds an element to the bottom of a stack.
-*/
+// correct one*/
+// void	lst_addback(t_stack **stack, t_stack *new)
+// {
+// 	t_stack	*tail;
+
+// 	if (!new)
+// 		return ;
+// 	if (!*stack)
+// 	{
+// 		*stack = new;
+// 		return ;
+// 	}
+// 	tail = lastelementinstack(*stack);
+// 	tail->next = new;
+// }
+//edited
 void	lst_addback(t_stack **stack, t_stack *new)
 {
-	t_stack	*tail;
+	t_stack	*lastone;
 
 	if (!new)
 		return ;
-	if (!*stack)
-	{
-		*stack = new;
-		return ;
-	}
-	tail = lastelementinstack(*stack);
-	tail->next = new;
+	lastone = lastelementinstack(*stack);
+	lastone->next = new;
 }
 
 /* get_stack_size:
