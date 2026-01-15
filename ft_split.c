@@ -6,11 +6,11 @@
 /*   By: aaliali <aaliali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 09:33:16 by aaliali           #+#    #+#             */
-/*   Updated: 2025/11/05 15:21:52 by aaliali          ###   ########.fr       */
+/*   Updated: 2026/01/15 14:57:02 by aaliali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"libft.h"
+#include"push_swap.h"
 
 static char	*nextword(char const **s, char c)
 {

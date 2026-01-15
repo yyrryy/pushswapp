@@ -72,6 +72,7 @@ int			positionoflowestindex(t_stack **stack);
 void printstack(char *msg, t_stack *stack);
 void	chunkalgo(t_stack **stack_a, t_stack **stack_b, int stacksize);
 void	radix(t_stack **stack_a, t_stack **stack_b);
+char	**ft_split(char const *s, char c);
 #endif
 
 
