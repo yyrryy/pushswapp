@@ -6,96 +6,71 @@
 /*   By: aaliali <aaliali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 16:33:15 by aaliali           #+#    #+#             */
-/*   Updated: 2026/01/10 14:28:48 by aaliali          ###   ########.fr       */
+/*   Updated: 2026/01/16 22:48:35 by aaliali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "push_swap.h"
 
-/* get_stack_bottom:
-*	Returns the last element of the stack.
-*/
-t_stack	*lastelementinstack(t_stack *stack)
+void	indexingstack(t_stack *stack_a)
 {
-	while (stack && stack->next != NULL)
-		stack = stack->next;
-	return (stack);
+	t_stack	*i;
+	t_stack	*j;
+	int		index;
+
+	i = stack_a;
+	while (i)
+	{
+		index = 0;
+		j = stack_a;
+		while (j)
+		{
+			if (j->value < i->value)
+				index++;
+			j = j->next;
+		}
+		i->index = index;
+		i = i->next;
+	}
 }
 
-/* get_stack_before_bottom:
-*	Returns the second to last element of the stack.
-*/
-t_stack	*elementbeforelastinstack(t_stack *stack)
+t_stack	*newnode(int value)
 {
-	while (stack && stack->next && stack->next->next != NULL)
-		stack = stack->next;
-	return (stack);
+	t_stack	*node;
+
+	node = malloc(sizeof(t_stack));
+	if (!node)
+		exit(1);
+	node->value = value;
+	node->index = -1;
+	node->next = NULL;
+	return (node);
 }
 
-/* stack_new:
-*	Creates a stack elements with the provided value.
-*	Returns the newly created stack element.
-*/
-t_stack	*createnodewithvalue(int value)
+void	addnewnode(t_stack **stack, t_stack *new)
 {
-	t_stack	*new;
+	t_stack	*holder;
 
-	new = malloc(sizeof * new);
-	if (!new)
-		return (NULL);
-	new->value = value;
-	new->index = 0;
-	new->pos = -1;
-	new->target_pos = -1;
-	new->cost_a = -1;
-	new->cost_b = -1;
-	new->next = NULL;
-	return (new);
-}
-
-/* add_stack_bottom:
-*	Adds an element to the bottom of a stack.
-// correct one*/
-// void	lst_addback(t_stack **stack, t_stack *new)
-// {
-// 	t_stack	*tail;
-
-// 	if (!new)
-// 		return ;
-// 	if (!*stack)
-// 	{
-// 		*stack = new;
-// 		return ;
-// 	}
-// 	tail = lastelementinstack(*stack);
-// 	tail->next = new;
-// }
-//edited
-void	lst_addback(t_stack **stack, t_stack *new)
-{
-	t_stack	*lastone;
-
-	if (!new)
+	if (!*stack)
+	{
+		*stack = new;
 		return ;
-	lastone = lastelementinstack(*stack);
-	lastone->next = new;
+	}
+	holder = *stack;
+	while (holder->next)
+		holder = holder->next;
+	holder->next = new;
 }
 
-/* get_stack_size:
-*	Returns the number of elements in a stack.
-*/
-int	getstacksize(t_stack	*stack)
+int	stack_size(t_stack *stack)
 {
-	int	size;
+	int	i;
 
-	size = 0;
-	if (!stack)
-		return (0);
+	i = 0;
 	while (stack)
 	{
+		i++;
 		stack = stack->next;
-		size++;
 	}
-	return (size);
+	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: aaliali <aaliali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 09:33:16 by aaliali           #+#    #+#             */
-/*   Updated: 2026/01/15 14:57:02 by aaliali          ###   ########.fr       */
+/*   Updated: 2026/01/16 08:45:01 by aaliali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static int	words(char const *s, char c)
 	return (wd);
 }
 
-static void	freetab(char **result, int i)
+void	freetab(char **result, int i)
 {
 	while (i >= 0)
 	{
