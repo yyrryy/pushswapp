@@ -28,14 +28,15 @@ typedef struct s_stack
 
 void	addnewnode(t_stack **stack, t_stack *new);
 t_stack	*newnode(int value);
-void	error_exit();
+void	error_exit(void);
 int		alreadysorted(t_stack *stack);
 long	ft_atol(const char *str);
 char	**ft_split(char const *s, char c);
 int		stack_size(t_stack *stack);
 t_stack	*parse_stack(int ac, char **av, char ***split_args);
 void	indexingstack(t_stack *stack_a);
-void	rotatestacka(t_stack **a);
-void	pushstackb(t_stack **a, t_stack **b);
-void	pushstacka(t_stack **a, t_stack **b);
+void	rotate_stacka(t_stack **a);
+void	push_to_stackb(t_stack **a, t_stack **b);
+void	push_to_stacka(t_stack **a, t_stack **b);
+int		validargv(char **av);
 #endif

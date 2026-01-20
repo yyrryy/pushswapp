@@ -6,13 +6,13 @@
 /*   By: aaliali <aaliali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 13:37:26 by aaliali           #+#    #+#             */
-/*   Updated: 2026/01/16 22:47:08 by aaliali          ###   ########.fr       */
+/*   Updated: 2026/01/18 21:46:27 by aaliali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotatestacka(t_stack **a)
+void	rotate_stacka(t_stack **a)
 {
 	t_stack	*holder;
 	t_stack	*last;
@@ -29,7 +29,7 @@ void	rotatestacka(t_stack **a)
 	write(1, "ra\n", 3);
 }
 
-void	pushstackb(t_stack **a, t_stack **b)
+void	push_to_stackb(t_stack **a, t_stack **b)
 {
 	t_stack	*holder;
 
@@ -42,7 +42,7 @@ void	pushstackb(t_stack **a, t_stack **b)
 	write(1, "pb\n", 3);
 }
 
-void	pushstacka(t_stack **a, t_stack **b)
+void	push_to_stacka(t_stack **a, t_stack **b)
 {
 	t_stack	*holder;
 
